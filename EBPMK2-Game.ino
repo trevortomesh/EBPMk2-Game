@@ -2,17 +2,14 @@
 /// A game framework for the MSP430 Educational Boosterpack MkII
 /// (c) Trevor Tomesh, 2016 -- The Unliscense
 
+//-------------------------------
 // Using libraries from Rei Vilo:
 // http://embeddedcomputing.weebly.com
 /// 11/12/2013 10:19
 /// version	101
-///
 /// @copyright	(c) Rei Vilo, 2013
 /// @copyright	CC = BY SA NC
-///
-/// @see		ReadMe.txt for references
-///
-
+//--------------------------------
 
 // Core library for code-sense
 #if defined(ENERGIA) // LaunchPad MSP430, Stellaris and Tiva, Experimeter Board FR5739 specific
@@ -20,9 +17,6 @@
 #else // error
 #error Platform not defined
 #endif
-
-// Prototypes
-
 
 // Include application, user and local libraries
 #include <SPI.h>
@@ -34,15 +28,16 @@
 #include <Terminal12e.h>
 #include <Terminal6e.h>
 #include <Terminal8e.h>
-Screen_HX8353E myScreen;
-
+Screen_HX8353E myScreen; // define the screen
 
 // Define variables and constants
 #define joystickX 2
 #define joystickY 26
 uint16_t x, y, x00, y00;
-uint16_t colour;
+uint16_t color;
 uint32_t z;
+
+float i = 0;
 
 
 // Add setup code
@@ -62,27 +57,39 @@ void setup()
 // Add loop code
 void loop()
 {
+
+
+
+
+  /* Joystick stuff -- ignore for now.
     x = map(analogRead(joystickX), 0, 4096, 0, 128);
     y = map(analogRead(joystickY), 0, 4096, 128, 0);
     if (x < 1)      x = 1;
     if (x > 126)    x = 126;
     if (y < 1)      y = 1;
     if (y > 126)    y = 126;
-
-    if ((x00 != x) || (y00 != y)) {
-        z = (uint32_t)((x-64)*(x-64)+(y-64)*(y-64)) >> 8;
-        if (z > 4)      colour = redColour;
-        else if (z > 1) colour = yellowColour;
-        else            colour = greenColour;
-
-        myScreen.dRectangle(x00-1, y00-1, 3, 3, blackColour);
-        myScreen.dRectangle(x-1, y-1, 3, 3, colour);
-        x00 = x;
-        y00 = y;
-    }
+*/
 
 
+//test routine:
+    myScreen.dRectangle(i*sin(x00+i)+64,i*cos(y00+i)+64,1,1,greenColour);
+    myScreen.dRectangle(i*cos(x00+i)+64,i*sin(y00+i)+64,1,1,redColour);
+    i = i+0.01;
+
+    //if ((x00 != x) || (y00 != y)) {
+
+        //myScreen.dRectangle(x00-1, y00-1, 3, 3, greenColour);
+        //myScreen.dRectangle(x-1, y-1, 3, 3, greenColour);
+        //x00 = x;
+        //y00 = y;
+    //}
+
+/*
     myScreen.gText(0, myScreen.screenSizeY()-myScreen.fontSizeY(),
                    "x=" + i32toa((int16_t)x-64, 10, 1, 6) +" y=" + i32toa(64-(int16_t)y, 10, 1, 6),
-                   colour);
+                   color);
+*/
+
+//myScreen.gText(0, myScreen.screenSizeY()-myScreen.fontSizeY(), "Test",500);
+//myScreen.clear();
 }
