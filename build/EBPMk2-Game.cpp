@@ -34,6 +34,10 @@
 #include <Terminal12e.h>
 #include <Terminal6e.h>
 #include <Terminal8e.h>
+#include "Energia.h"
+void setup();
+void loop();
+#line 36
 Screen_HX8353E myScreen;
 
 
@@ -86,3 +90,4 @@ void loop()
                    "x=" + i32toa((int16_t)x-64, 10, 1, 6) +" y=" + i32toa(64-(int16_t)y, 10, 1, 6),
                    colour);
 }
+
