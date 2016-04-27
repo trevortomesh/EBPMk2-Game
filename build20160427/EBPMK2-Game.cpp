@@ -20,6 +20,14 @@
 #include <LCD_screen.h>
 #include <LCD_screen_font.h>
 #include <Screen_HX8353E.h>
+#include "Energia.h"
+void setup();
+void loop();
+void input();
+void update();
+void render();
+void gameOver();
+#line 22
 Screen_HX8353E draw;
 
 
@@ -143,3 +151,4 @@ void gameOver(){
 	delay(1000);
 	setup();
 }
+
