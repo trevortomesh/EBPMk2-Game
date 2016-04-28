@@ -8,4 +8,7 @@ The goals of this project:
 + Develop a game (of course) 
 + To develop and outline a simple games framework for the Educational Boosterpack MK II
 
+The final development was a simple break-out like game: 
+![alt text](https://github.com/trevortomesh/EBPMK2-Game/blob/master/img/game-1.jpg "Simple game in action")
+![alt text](https://github.com/trevortomesh/EBPMK2-Game/blob/master/img/gameover.jpg "Game over...")
 
