@@ -10,5 +10,5 @@ The goals of this project:
 
 The final development was a simple break-out like game: 
 ![alt text](https://github.com/trevortomesh/EBPMK2-Game/blob/master/img/game-1.jpg "Simple game in action")
-![alt text](https://github.com/trevortomesh/EBPMK2-Game/blob/master/img/gameover.jpg "Game over...")
+![alt text](https://github.com/trevortomesh/EBPMK2-Game/blob/master/img/gamelose.jpg "Game over...")
 
